@@ -6,7 +6,8 @@ public class SctPlayerController : MonoBehaviour
 {
     public float speedPlayer;
     public float jumpForce;
-    public bool canJump;
+    bool canJump;
+    bool doubleJump;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,12 @@ public class SctPlayerController : MonoBehaviour
             Debug.Log("Jump!");
             canJump = false;
         }
+        else if (Input.GetKeyDown(KeyCode.Space) && doubleJump)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("Jump!");
+            doubleJump = false;
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -39,6 +46,7 @@ public class SctPlayerController : MonoBehaviour
         {
             Debug.Log("Tierra firrrrrrme!");
             canJump = true;
+            doubleJump = true;
         }
         Debug.Log(collision.gameObject.name);
     }
