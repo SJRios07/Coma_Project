@@ -48,14 +48,13 @@ public class SctFallingPlatformV2 : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "PlayerSJ" && !fall && !respawn)
+        if (collision.gameObject.tag == "Player" && !fall && !respawn)
         {
             var normal = collision.contacts[0].normal;
             if (normal.y < 0)
             { //if the bottom side hit something
                 timer = fallTime;
                 fall = true;
-                Debug.Log("faaaaalling");
             }
         }
     }
@@ -63,11 +62,10 @@ public class SctFallingPlatformV2 : MonoBehaviour
     public void OnCollisionStay(Collision collision)
     {
         var normal = collision.contacts[0].normal;
-        if (normal.y < 0 && !fall)
-        { //if the bottom side hit something
+        if (normal.y < 0 && !fall && collision.gameObject.tag == "Player")
+        { 
             timer = fallTime;
             fall = true;
-            Debug.Log("faaaaalling");
         }
     }
 }

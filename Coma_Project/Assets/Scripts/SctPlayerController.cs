@@ -11,12 +11,14 @@ public class SctPlayerController : MonoBehaviour
 
     bool canJump;
     bool doubleJump;
-    Vector3 posIni;
 
     public float gravityScale = 1.0f;
     public static float globalGravity = -9.81f;
 
     Rigidbody playerRB;
+
+    [HideInInspector]
+    public Vector3 posIni;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +37,10 @@ public class SctPlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            //transform.Translate(speedPlayer * Time.deltaTime, 0, 0);
             playerRB.AddForce(transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            //transform.Translate(-speedPlayer * Time.deltaTime, 0, 0);
             playerRB.AddForce(-transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.S) && !canJump)
@@ -60,6 +60,7 @@ public class SctPlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.position = posIni;
+            playerRB.AddForce(Vector3.zero, ForceMode.VelocityChange);
         }
     }
 
@@ -78,11 +79,8 @@ public class SctPlayerController : MonoBehaviour
             { //if the bottom side hit something 
                 canJump = true;
                 doubleJump = true;
-                Debug.Log("Yay!");
             }
         }
-        Debug.Log(collision.gameObject.name);
-
     }
 
     public void OnCollisionExit(Collision collision)
