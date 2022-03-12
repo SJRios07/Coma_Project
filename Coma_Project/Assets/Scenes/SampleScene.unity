@@ -389,7 +389,7 @@ MonoBehaviour:
   fallTime: 0.6
   respawnTime: 2
   moveDir: 1
-  speed: 0.03
+  speed: 10000
 --- !u!54 &398797062
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -399,12 +399,12 @@ Rigidbody:
   m_GameObject: {fileID: 398797056}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 124
   m_CollisionDetection: 0
 --- !u!1 &705507993
 GameObject:
@@ -674,7 +674,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1418466505
 MonoBehaviour:
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17c7d8aabf564c73b933343c368c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPlayer: 20
+  speedPlayer: 8
   jumpForce: 20
   gravityScale: 3.5
 --- !u!136 &1418466506

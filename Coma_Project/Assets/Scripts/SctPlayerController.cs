@@ -16,12 +16,12 @@ public class SctPlayerController : MonoBehaviour
 
     public static float globalGravity = -9.81f;
 
-    Rigidbody m_rb;
+    Rigidbody playerRB;
     // Start is called before the first frame update
     void Start()
     {
         canJump = true;
-        m_rb = gameObject.GetComponent<Rigidbody>();
+        playerRB = gameObject.GetComponent<Rigidbody>();
         posIni = transform.position;
     }
 
@@ -31,26 +31,26 @@ public class SctPlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(speedPlayer * Time.deltaTime, 0, 0);
+            //transform.Translate(speedPlayer * Time.deltaTime, 0, 0);
+            playerRB.AddForce(transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speedPlayer * Time.deltaTime, 0, 0);
+            //transform.Translate(-speedPlayer * Time.deltaTime, 0, 0);
+            playerRB.AddForce(-transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.S) && !canJump)
         {
-            transform.Translate(0, -speedPlayer * Time.deltaTime, 0);
+            playerRB.AddForce(-transform.up * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jump!");
+            playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             canJump = false;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && doubleJump)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jump!");
+            playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             doubleJump = false;
         }
         if (Input.GetKey(KeyCode.Q))
@@ -62,7 +62,7 @@ public class SctPlayerController : MonoBehaviour
     void FixedUpdate ()
     {
         Vector3 gravity = globalGravity * gravityScale * Vector3.up;
-        m_rb.AddForce(gravity, ForceMode.Acceleration);
+        playerRB.AddForce(gravity, ForceMode.Acceleration);
      }
 
     public void OnCollisionEnter(Collision collision)

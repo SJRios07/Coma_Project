@@ -29,7 +29,8 @@ public class SctKamikazePlatform : MonoBehaviour
     {
         if (move)
         {
-            transform.Translate(moveDir * speed, 0, 0);
+            //transform.Translate(moveDir * speed, 0, 0);
+            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * moveDir * speed, ForceMode.Force);
         }
         if (fall && timer > 0)
         {
@@ -80,11 +81,6 @@ public class SctKamikazePlatform : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
-        Debug.Log("Carajo" + collision.gameObject.tag);
-        var normal = collision.contacts[0].normal;
-        if (normal.y < 0 && !fall)
-        { //if the bottom side hit something
 
-        }
     }
 }
