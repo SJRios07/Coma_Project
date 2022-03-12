@@ -5,6 +5,7 @@ using UnityEngine;
 public class SctKamikazePlatform : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject player;
     public float fallTime;
     public float respawnTime;
     public float moveDir;
@@ -14,7 +15,7 @@ public class SctKamikazePlatform : MonoBehaviour
     bool respawn;
     bool move;
     bool playerOn;
-    Vector3 playerSpeed;
+    Vector3 playerVelocity;
     Vector3 posIni;
     // Start is called before the first frame update
     void Start()
@@ -23,22 +24,29 @@ public class SctKamikazePlatform : MonoBehaviour
         fall = false;
         respawn = false;
         move = false;
-        playerOn = true;
+        playerOn = false;
         posIni = transform.position;
-        playerSpeed = Vector3.zero;
+        playerVelocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerOn)
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(-playerSpeed, ForceMode.Force);
-        }
+        Debug.Log(-player.gameObject.GetComponent<Rigidbody>().velocity);
         if (move)
         {
-            //transform.Translate(moveDir * speed, 0, 0);
             gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+            if (playerOn)
+            {
+                if (Input.GetKey(KeyCode.D))
+                {
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().speedPlayer, ForceMode.Force);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().speedPlayer, ForceMode.Force);
+                }
+            }
         }
         if (fall && timer > 0)
         {
@@ -60,6 +68,7 @@ public class SctKamikazePlatform : MonoBehaviour
                 transform.position = posIni;
                 platform.SetActive(true);
                 gameObject.GetComponent<BoxCollider>().enabled = true;
+                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 respawn = false;
             }
         }
@@ -75,6 +84,7 @@ public class SctKamikazePlatform : MonoBehaviour
             if (normal.y < 0)
             { //if the bottom side hit something
                 move = true;
+                playerOn = true;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.VelocityChange);
             }
         }
@@ -85,12 +95,6 @@ public class SctKamikazePlatform : MonoBehaviour
             move = false;
         }
 
-    }
-
-    public void OnCollisionStay(Collision collision)
-    {
-        playerSpeed = collision.gameObject.GetComponent<Rigidbody>().velocity;
-        playerOn = true;
     }
 
     public void OnCollisionExit(Collision collision)

@@ -7,7 +7,7 @@ public class SctPlayerController : MonoBehaviour
     public float groundSpeed;
     public float airSpeed;
     public float jumpForce;
-    float speedPlayer;
+    public float speedPlayer;
 
     bool canJump;
     bool doubleJump;
@@ -35,12 +35,10 @@ public class SctPlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            //transform.Translate(speedPlayer * Time.deltaTime, 0, 0);
             playerRB.AddForce(transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            //transform.Translate(-speedPlayer * Time.deltaTime, 0, 0);
             playerRB.AddForce(-transform.right * speedPlayer, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.S) && !canJump)
@@ -60,6 +58,7 @@ public class SctPlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.position = posIni;
+            playerRB.AddForce(Vector3.zero, ForceMode.VelocityChange);
         }
     }
 
@@ -78,11 +77,8 @@ public class SctPlayerController : MonoBehaviour
             { //if the bottom side hit something 
                 canJump = true;
                 doubleJump = true;
-                Debug.Log("Yay!");
             }
         }
-        Debug.Log(collision.gameObject.name);
-
     }
 
     public void OnCollisionExit(Collision collision)

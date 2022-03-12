@@ -55,7 +55,6 @@ public class SctFallingPlatformV2 : MonoBehaviour
             { //if the bottom side hit something
                 timer = fallTime;
                 fall = true;
-                Debug.Log("faaaaalling");
             }
         }
     }
@@ -67,7 +66,6 @@ public class SctFallingPlatformV2 : MonoBehaviour
         { //if the bottom side hit something
             timer = fallTime;
             fall = true;
-            Debug.Log("faaaaalling");
         }
     }
 }
