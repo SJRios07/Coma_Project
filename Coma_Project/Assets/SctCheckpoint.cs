@@ -26,7 +26,7 @@ public class SctCheckpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "PlayerSJ")
+        if (other.gameObject.tag == "Player")
         {
             player.GetComponent<SctPlayerController>().posIni = transform.position;
             spotlight.color = colorActivado;

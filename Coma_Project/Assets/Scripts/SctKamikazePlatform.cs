@@ -74,8 +74,7 @@ public class SctKamikazePlatform : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Carajo" + collision.gameObject.tag);
-        if (collision.gameObject.name == "PlayerSJ" && !fall && !respawn)
+        if (collision.gameObject.tag == "Player" && !fall && !respawn)
         {
             var normal = collision.contacts[0].normal;
             if (normal.y < 0)
