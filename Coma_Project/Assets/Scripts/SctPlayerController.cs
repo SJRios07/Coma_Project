@@ -7,7 +7,7 @@ public class SctPlayerController : MonoBehaviour
     public float groundSpeed;
     public float airSpeed;
     public float jumpForce;
-    public float speedPlayer;
+    float speedPlayer;
 
     bool canJump;
     bool doubleJump;

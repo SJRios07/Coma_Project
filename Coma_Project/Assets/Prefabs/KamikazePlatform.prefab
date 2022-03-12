@@ -193,11 +193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4175453040859764910}
-  player: {fileID: 0}
   fallTime: 0.6
   respawnTime: 2
-  moveDir: 1
-  speed: 1
+  moveDir: -1
+  speed: 2
 --- !u!65 &4175453041788017382
 BoxCollider:
   m_ObjectHideFlags: 0

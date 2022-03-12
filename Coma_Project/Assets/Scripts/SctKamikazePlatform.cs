@@ -5,7 +5,7 @@ using UnityEngine;
 public class SctKamikazePlatform : MonoBehaviour
 {
     public GameObject platform;
-    public GameObject player;
+    GameObject player;
     public float fallTime;
     public float respawnTime;
     public float moveDir;
@@ -15,7 +15,6 @@ public class SctKamikazePlatform : MonoBehaviour
     bool respawn;
     bool move;
     bool playerOn;
-    Vector3 playerVelocity;
     Vector3 posIni;
     // Start is called before the first frame update
     void Start()
@@ -26,13 +25,11 @@ public class SctKamikazePlatform : MonoBehaviour
         move = false;
         playerOn = false;
         posIni = transform.position;
-        playerVelocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(-player.gameObject.GetComponent<Rigidbody>().velocity);
         if (move)
         {
             gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
@@ -40,11 +37,11 @@ public class SctKamikazePlatform : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.D))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().speedPlayer, ForceMode.Force);
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().groundSpeed, ForceMode.Force);
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().speedPlayer, ForceMode.Force);
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().groundSpeed, ForceMode.Force);
                 }
             }
         }
@@ -86,6 +83,7 @@ public class SctKamikazePlatform : MonoBehaviour
                 move = true;
                 playerOn = true;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.VelocityChange);
+                player = collision.gameObject;
             }
         }
         if (collision.gameObject.tag == "Piso" && move)
