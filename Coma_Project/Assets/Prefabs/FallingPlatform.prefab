@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1475656620588003737}
-  fallTime: 1
+  fallTime: 0.6
   respawnTime: 3
 --- !u!1 &1475656620150083859
 GameObject:

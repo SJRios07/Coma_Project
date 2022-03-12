@@ -8,6 +8,7 @@ public class SctPlayerController : MonoBehaviour
     public float jumpForce;
     bool canJump;
     bool doubleJump;
+    Vector3 posIni;
     public float gravityScale = 1.0f;
 
     // Global Gravity doesn't appear in the inspector. Modify it here in the code
@@ -21,6 +22,7 @@ public class SctPlayerController : MonoBehaviour
     {
         canJump = true;
         m_rb = gameObject.GetComponent<Rigidbody>();
+        posIni = transform.position;
     }
 
     // Update is called once per frame
@@ -51,6 +53,10 @@ public class SctPlayerController : MonoBehaviour
             Debug.Log("Jump!");
             doubleJump = false;
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.position = posIni;
+        }
     }
 
     void FixedUpdate ()
@@ -63,10 +69,23 @@ public class SctPlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Piso")
         {
-            Debug.Log("Tierra firrrrrrme!");
-            canJump = true;
-            doubleJump = true;
+            var normal = collision.contacts[0].normal;
+            if (normal.y > 0)
+            { //if the bottom side hit something 
+                canJump = true;
+                doubleJump = true;
+                Debug.Log("Yay!");
+            }
         }
-        Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.name);
+
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Piso")
+        {
+            canJump = false;
+        }
     }
 }
