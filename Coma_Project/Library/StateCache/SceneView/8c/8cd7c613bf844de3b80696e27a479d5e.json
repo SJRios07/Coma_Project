@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":42.983253479003909,"y":17.09674835205078,"z":20.94601821899414},"rotation":{"x":0.010499573312699795,"y":-0.006897547747939825,"z":0.00007242419087560847,"w":0.9999220967292786},"size":45.883209228515628,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":-86.51045227050781,"y":-7.884681701660156,"z":-41.22206497192383},"rotation":{"x":0.13948996365070344,"y":-0.5833472609519959,"z":0.1025395467877388,"w":0.7935594320297241},"size":43.45109176635742,"orthographic":false}
+>>>>>>> adolfo-dev

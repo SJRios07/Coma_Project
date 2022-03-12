@@ -318,3 +318,4 @@
 "Assets/Scripts/SctFallingPlatformV2.cs"
 "Assets/Scripts/SctKamikazePlatform.cs"
 "Assets/Scripts/SctPlayerController.cs"
+"Assets/Scripts/ShootingComponent.cs"
