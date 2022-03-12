@@ -11,12 +11,14 @@ public class SctPlayerController : MonoBehaviour
 
     bool canJump;
     bool doubleJump;
-    Vector3 posIni;
 
     public float gravityScale = 1.0f;
     public static float globalGravity = -9.81f;
 
     Rigidbody playerRB;
+
+    [HideInInspector]
+    public Vector3 posIni;
 
     // Start is called before the first frame update
     void Start()
