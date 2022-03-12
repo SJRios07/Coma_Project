@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class SctPlayerController : MonoBehaviour
 {
-    public float speedPlayer;
+    public float groundSpeed;
+    public float airSpeed;
     public float jumpForce;
+    float speedPlayer;
+
     bool canJump;
     bool doubleJump;
     Vector3 posIni;
+
     public float gravityScale = 1.0f;
-
-    // Global Gravity doesn't appear in the inspector. Modify it here in the code
-    // (or via scripting) to define a different default gravity for all objects.
-
     public static float globalGravity = -9.81f;
 
     Rigidbody playerRB;
+
     // Start is called before the first frame update
     void Start()
     {
         canJump = true;
         playerRB = gameObject.GetComponent<Rigidbody>();
         posIni = transform.position;
+        speedPlayer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        speedPlayer = (canJump) ? groundSpeed:airSpeed;
+
         if (Input.GetKey(KeyCode.D))
         {
             //transform.Translate(speedPlayer * Time.deltaTime, 0, 0);

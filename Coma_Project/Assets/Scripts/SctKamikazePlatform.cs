@@ -13,6 +13,8 @@ public class SctKamikazePlatform : MonoBehaviour
     bool fall;
     bool respawn;
     bool move;
+    bool playerOn;
+    Vector3 playerSpeed;
     Vector3 posIni;
     // Start is called before the first frame update
     void Start()
@@ -21,16 +23,22 @@ public class SctKamikazePlatform : MonoBehaviour
         fall = false;
         respawn = false;
         move = false;
+        playerOn = true;
         posIni = transform.position;
+        playerSpeed = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerOn)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(-playerSpeed, ForceMode.Force);
+        }
         if (move)
         {
             //transform.Translate(moveDir * speed, 0, 0);
-            gameObject.GetComponent<Rigidbody>().AddForce(-transform.right * moveDir * speed, ForceMode.Force);
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
         }
         if (fall && timer > 0)
         {
@@ -67,13 +75,13 @@ public class SctKamikazePlatform : MonoBehaviour
             if (normal.y < 0)
             { //if the bottom side hit something
                 move = true;
+                gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.VelocityChange);
             }
         }
         if (collision.gameObject.tag == "Piso" && move)
         {
             timer = fallTime;
             fall = true;
-            Debug.Log("Golpeo");
             move = false;
         }
 
@@ -81,6 +89,12 @@ public class SctKamikazePlatform : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
+        playerSpeed = collision.gameObject.GetComponent<Rigidbody>().velocity;
+        playerOn = true;
+    }
 
+    public void OnCollisionExit(Collision collision)
+    {
+        playerOn = false;
     }
 }
