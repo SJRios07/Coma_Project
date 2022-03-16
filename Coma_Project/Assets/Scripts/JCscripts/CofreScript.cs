@@ -18,13 +18,16 @@ public class CofreScript : MonoBehaviour
 
     public GameObject Chest;
 
-    public bool hasKey;
+    public bool claimedKey;
+
+    bool keyCreated;
     
 
     // Start is called before the first frame update
     void Start()
     {
         SetTextMessage(msgabrircofre, false);
+        keyCreated = false;
     }
 
     // Update is called once per frame
@@ -32,16 +35,12 @@ public class CofreScript : MonoBehaviour
     {
         if (player != null)
         {
-
-            if (Input.GetKeyDown(KeyCode.E) && Chest.GetComponent<Animator>().GetBool("OpenChest") == true && hasKey == false)
-
+            if (Input.GetKeyDown(KeyCode.E) && Chest.GetComponent<Animator>().GetBool("OpenChest") == true && claimedKey == false)
             {
                 Debug.Log("ENTRANDO SIN RAZPN");
-                Destroy(keyCopy);
                 keyCopy.SetActive(false);
-                hasKey = true;
-                //Chest.GetComponent<Animator>().SetBool("OpenChest", false);
-                //keyTemp.GetComponent<Renderer>().enabled = false;
+                player.GetComponent<SctPlayerController>().hasKey = true;
+                claimedKey = true;
             }
 
             if (Input.GetKeyDown(KeyCode.E) && Chest.GetComponent<Animator>().GetBool("OpenChest") == false )
@@ -50,47 +49,31 @@ public class CofreScript : MonoBehaviour
                 Chest.GetComponent<Animator>().SetBool("OpenChest", true);
                 SetTextMessage(msgabrircofre, true);
 
-                if (hasKey == false)
-
+                if (claimedKey == false)
                 {
                     keyCopy = Instantiate(prefabKey);
                     keyCopy.transform.position = aimerkey.position;
-
+                    keyCreated = true;
                 }
-              
-
-                //Destroy(key);
-
-               
-
             }
-
-        
         }
-
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        player = other.gameObject.GetComponent<SctPlayerController>();
-
-        if (player != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            
+            player = other.gameObject.GetComponent<SctPlayerController>();
 
-            //Entro un player
-            isOnChest = true;
-            SetTextMessage(msgabrircofre, true);
-
-
+            if (player != null)
+            {
+                //Entro un player
+                isOnChest = true;
+                SetTextMessage(msgabrircofre, true);
+            }
         }
-
-
-        Debug.Log ("Entrounplayer");
-        }
+       
+    }
 
     private void OnTriggerExit(Collider other)
     {

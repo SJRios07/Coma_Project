@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SctPlayerController : MonoBehaviour
 {
-    public float groundSpeed;
-    public float airSpeed;
-    public float jumpForce;
+    public float groundSpeed = 10f;
+    public float airSpeed = 5f;
+    public float jumpForce = 20f;
     float speedPlayer;
 
     bool canJump;
@@ -16,9 +16,11 @@ public class SctPlayerController : MonoBehaviour
     public static float globalGravity = -9.81f;
 
     Rigidbody playerRB;
+    public bool hasKey;
 
     [HideInInspector]
     public Vector3 posIni;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class SctPlayerController : MonoBehaviour
         playerRB = gameObject.GetComponent<Rigidbody>();
         posIni = transform.position;
         speedPlayer = 0;
+        hasKey = false;
     }
 
     // Update is called once per frame

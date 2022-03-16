@@ -18,22 +18,22 @@ public class GPuerta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (player != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Presiono E");
-                if (hasKey == true)
+                if (player.GetComponent<SctPlayerController>().hasKey == true)
                 {//Si tiene la llave
                  //SwitchDoor(false);
                     door.GetComponent<Animator>().SetBool("opendoor", true);
+                    player.GetComponent<SctPlayerController>().hasKey = false;
                 }
                 else
                 {//No tiene Llave
@@ -46,14 +46,15 @@ public class GPuerta : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        player = other.gameObject.GetComponent<SctPlayerController>();
-
-        if (player != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            //Entro un player
-            //isOnDoor = true;
-            SetTextMessage(msgInserte, true);
-   
+            player = other.gameObject.GetComponent<SctPlayerController>();
+
+            if (player != null)
+            {
+                SetTextMessage(msgInserte, true);
+
+            }
         }
     }
 
@@ -67,8 +68,7 @@ public class GPuerta : MonoBehaviour
         if (other.gameObject.GetComponent<SctPlayerController>() == player)
         {
 
-            door.GetComponent<Animator>().SetBool("opendoor", false);
-            //isOnDoor = false;
+            //door.GetComponent<Animator>().SetBool("opendoor", false);
             player = null;
             SetTextMessage("No player", false);
         }
