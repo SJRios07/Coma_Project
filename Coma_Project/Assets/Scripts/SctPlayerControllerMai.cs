@@ -81,15 +81,24 @@ public class SctPlayerControllerMai : MonoBehaviour
 
     public void HandleAnimation()
     {
-        leerAnimator.SetBool("IsGrounded", canJump);
+        //leerAnimator.SetBool("IsGrounded", canJump);
 
-        if (playerRB.velocity.magnitude > 0.01f)
+        if (playerRB.velocity.x > 0.01f || playerRB.velocity.x < -0.01f)
         {
             leerAnimator.SetBool("Running", true);
         }
         else
         {
             leerAnimator.SetBool("Running", false);
+        }
+  
+        if (playerRB.velocity.y > 0.01f || playerRB.velocity.y < -0.01f)
+        {
+            leerAnimator.SetBool("Jummping", true);
+        }
+        else
+        {
+            leerAnimator.SetBool("Jummping", false);
         }
     }
 
