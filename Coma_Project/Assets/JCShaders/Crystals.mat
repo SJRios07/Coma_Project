@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Crystals
+  m_Shader: {fileID: -6465566751694194690, guid: 71893ae12750d427b81f4268233d8690, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_6697c8b6522e4e74bd973196098b4759:
+        m_Texture: {fileID: 2800000, guid: 5275bcf624be89d4081038eeea9bdd7c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_e206bfa4290b49a19bb9801b57381a35:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_3760ca508dda4324bb19522140e71cc2: 6.1
+    - Vector1_a3fc3d6430c642f983043ec8086a6b05: 36.43
+    - Vector1_ec31eab017aa447db2556427ee470dac: -0.33
+    m_Colors:
+    - Color_32932bafb1884f03b593af6147ea889e: {r: 0.12614723, g: 2.0078435, b: 1.9868188, a: 1}
+    - Color_66d6118828b04efdbd7e45f9b827b3af: {r: 0.5377358, g: 0.20545568, b: 0.3970055, a: 0}
+  m_BuildTextureStacks: []
