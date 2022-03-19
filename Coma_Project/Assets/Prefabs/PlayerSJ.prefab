@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 3975500377818014929}
   m_Layer: 0
   m_Name: PlayerSJ
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +273,7 @@ MonoBehaviour:
   airSpeed: 5
   jumpForce: 20
   gravityScale: 3.5
+  hasKey: 0
   posIni: {x: 0, y: 0, z: 0}
 --- !u!54 &3975500377818014935
 Rigidbody:
