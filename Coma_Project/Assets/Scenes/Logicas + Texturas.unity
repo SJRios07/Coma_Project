@@ -1193,6 +1193,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2208017860465685866, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
+    - target: {fileID: 2263728337119402055, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
+    - target: {fileID: 6051322247058939232, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
     - target: {fileID: 6051322247840448788, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
       propertyPath: m_Name
       value: Puertavacio (1)
@@ -1750,6 +1762,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2208017860465685866, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
+    - target: {fileID: 2263728337119402055, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
+    - target: {fileID: 6051322247058939232, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2ec3d8ed4dd54d57b5734c3f8585225, type: 2}
     - target: {fileID: 6051322247840448788, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
       propertyPath: m_Name
       value: Puertavacio
@@ -1768,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051322247840448789, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 6051322247840448789, guid: 2339c83483177fe4fbb6a000e463108c, type: 3}
       propertyPath: m_LocalRotation.w
