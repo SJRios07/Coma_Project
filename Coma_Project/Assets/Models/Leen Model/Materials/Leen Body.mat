@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Leen Body
+  m_Shader: {fileID: -6465566751694194690, guid: 372382c7c8637224a83d1f6b043f2187, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_3aecc13551724960b5c1acd9768ce91d: 0
+    - Vector1_1a91c08a36594221bcea280464bf4b54: 1
+    - Vector1_8cbdace2ce1140a69a4a85d1dd365a05: 5.29
+    m_Colors:
+    - Color_8cb986dcf2d04e4aa64349527d656888: {r: 0.2522632, g: 0, b: 0.1441504, a: 1}
+    - Vector4_c82a80e511dc4cd7a58cf64f2b8d030e: {r: -2.04, g: 2.85, b: 0, a: 0}
+  m_BuildTextureStacks: []
