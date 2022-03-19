@@ -195,8 +195,9 @@ MonoBehaviour:
   platform: {fileID: 4175453040859764910}
   fallTime: 0.6
   respawnTime: 2
-  moveDir: -1
-  speed: 2
+  moveDir: 1
+  speed: 10
+  maxSpeed: 20
 --- !u!65 &4175453041788017382
 BoxCollider:
   m_ObjectHideFlags: 0

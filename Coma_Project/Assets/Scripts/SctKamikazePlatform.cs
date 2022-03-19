@@ -10,12 +10,14 @@ public class SctKamikazePlatform : MonoBehaviour
     public float respawnTime;
     public float moveDir;
     public float speed;
+    public float maxSpeed = 30f;
     float timer;
     bool fall;
     bool respawn;
     bool move;
     bool playerOn;
     Vector3 posIni;
+    float deltaTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +37,14 @@ public class SctKamikazePlatform : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
             if (playerOn)
             {
+                deltaTime = Time.deltaTime * 500;
                 if (Input.GetKey(KeyCode.D))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().groundSpeed, ForceMode.Force);
-                }
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
+                } 
                 if (Input.GetKey(KeyCode.A))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().groundSpeed, ForceMode.Force);
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
                 }
             }
         }
@@ -97,5 +100,17 @@ public class SctKamikazePlatform : MonoBehaviour
     public void OnCollisionExit(Collision collision)
     {
         playerOn = false;
+    }
+
+    public void checkVelocity()
+    {
+        if (gameObject.GetComponent<Rigidbody>().velocity.x > maxSpeed)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+        }
+        if (gameObject.GetComponent<Rigidbody>().velocity.x < -maxSpeed)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+        }
     }
 }

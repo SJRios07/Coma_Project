@@ -7,6 +7,7 @@ public class SctPlayerController : MonoBehaviour
     public float groundSpeed = 10f;
     public float airSpeed = 5f;
     public float jumpForce = 20f;
+    public float maxSpeed = 40f;
     float speedPlayer;
 
     bool canJump;
@@ -20,7 +21,8 @@ public class SctPlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector3 posIni;
-    
+    float deltaTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,18 +39,21 @@ public class SctPlayerController : MonoBehaviour
     {
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         speedPlayer = (canJump) ? groundSpeed:airSpeed;
+        deltaTime = Time.deltaTime * 500;
+
+        Debug.Log(playerRB.velocity);
 
         if (Input.GetKey(KeyCode.D))
         {
-            playerRB.AddForce(transform.right * speedPlayer, ForceMode.Force);
+            playerRB.AddForce(transform.right * speedPlayer * deltaTime, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            playerRB.AddForce(-transform.right * speedPlayer, ForceMode.Force);
+            playerRB.AddForce(-transform.right * speedPlayer * deltaTime, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.S) && !canJump)
         {
-            playerRB.AddForce(-transform.up * speedPlayer, ForceMode.Force);
+            playerRB.AddForce(-transform.up * speedPlayer * deltaTime, ForceMode.Force);
         }
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
@@ -65,6 +70,8 @@ public class SctPlayerController : MonoBehaviour
             transform.position = posIni;
             playerRB.AddForce(Vector3.zero, ForceMode.VelocityChange);
         }
+
+        checkVelocity();
     }
 
     void FixedUpdate ()
@@ -91,6 +98,18 @@ public class SctPlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Piso")
         {
             canJump = false;
+        }
+    }
+
+    public void checkVelocity()
+    {
+        if (playerRB.velocity.x > maxSpeed)
+        {
+            playerRB.AddForce(transform.right * -speedPlayer * deltaTime, ForceMode.Force);
+        }
+        if (playerRB.velocity.x < -maxSpeed)
+        {
+            playerRB.AddForce(transform.right * speedPlayer * deltaTime, ForceMode.Force);
         }
     }
 }
