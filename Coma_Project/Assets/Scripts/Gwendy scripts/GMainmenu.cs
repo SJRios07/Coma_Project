@@ -24,4 +24,8 @@ public class GMainmenu : MonoBehaviour
 
     }
 
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
