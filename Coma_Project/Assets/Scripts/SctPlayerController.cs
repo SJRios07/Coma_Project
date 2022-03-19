@@ -41,8 +41,6 @@ public class SctPlayerController : MonoBehaviour
         speedPlayer = (canJump) ? groundSpeed:airSpeed;
         deltaTime = Time.deltaTime * 500;
 
-        Debug.Log(playerRB.velocity);
-
         if (Input.GetKey(KeyCode.D))
         {
             playerRB.AddForce(transform.right * speedPlayer * deltaTime, ForceMode.Force);
