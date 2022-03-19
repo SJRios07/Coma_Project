@@ -23,6 +23,8 @@ public class SctPlayerController : MonoBehaviour
     public Vector3 posIni;
     float deltaTime;
 
+    public Animator leerAnimator;
+    public GameObject playerGeo;
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +46,12 @@ public class SctPlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             playerRB.AddForce(transform.right * speedPlayer * deltaTime, ForceMode.Force);
+            playerGeo.transform.eulerAngles = new Vector3(0, 90, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
             playerRB.AddForce(-transform.right * speedPlayer * deltaTime, ForceMode.Force);
+            playerGeo.transform.eulerAngles = new Vector3(0, 270, 0);
         }
         if (Input.GetKey(KeyCode.S) && !canJump)
         {
@@ -69,7 +73,13 @@ public class SctPlayerController : MonoBehaviour
             playerRB.AddForce(Vector3.zero, ForceMode.VelocityChange);
         }
 
+        //The step size is equal to speed times frame time.
+        var step = speedPlayer * Time.deltaTime;
+
+        // Rotate our transform a step closer to the target's.
+
         checkVelocity();
+        HandleAnimation();
     }
 
     void FixedUpdate ()
@@ -96,6 +106,20 @@ public class SctPlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Piso")
         {
             canJump = false;
+        }
+    }
+
+    public void HandleAnimation()
+    {
+        //leerAnimator.SetBool("IsGrounded", canJump);
+
+        if (playerRB.velocity.x > 0.01f || playerRB.velocity.x < -0.01f)
+        {
+            leerAnimator.SetBool("Running", true);
+        }
+        else
+        {
+            leerAnimator.SetBool("Running", false);
         }
     }
 

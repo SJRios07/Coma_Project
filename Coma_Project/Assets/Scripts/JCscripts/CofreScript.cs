@@ -49,7 +49,7 @@ public class CofreScript : MonoBehaviour
                 Chest.GetComponent<Animator>().SetBool("OpenChest", true);
                 SetTextMessage(msgabrircofre, true);
 
-                if (claimedKey == false)
+                if (!claimedKey && !keyCreated)
                 {
                     keyCopy = Instantiate(prefabKey);
                     keyCopy.transform.position = aimerkey.position;
