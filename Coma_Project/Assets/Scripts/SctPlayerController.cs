@@ -121,6 +121,14 @@ public class SctPlayerController : MonoBehaviour
         {
             leerAnimator.SetBool("Running", false);
         }
+        if (playerRB.velocity.y > 0.01f || playerRB.velocity.y < -0.01f)
+        {
+            leerAnimator.SetBool("Jummping", true);
+        }
+        else
+        {
+            leerAnimator.SetBool("Jummping", false);
+        }
     }
 
     public void checkVelocity()
