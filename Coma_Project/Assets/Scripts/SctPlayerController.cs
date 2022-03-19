@@ -81,6 +81,8 @@ public class SctPlayerController : MonoBehaviour
 
     public void HandleAnimation()
     {
+        leerAnimator.SetBool("IsGrounded", canJump);
+
         if (playerRB.velocity.magnitude > 0.01f)
         {
             leerAnimator.SetBool("Running", true);
