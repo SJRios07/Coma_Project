@@ -17,7 +17,9 @@ public class SctKamikazePlatform : MonoBehaviour
     bool move;
     bool playerOn;
     Vector3 posIni;
+    Quaternion rotIni;
     float deltaTime;
+    Rigidbody platformRB;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,9 @@ public class SctKamikazePlatform : MonoBehaviour
         move = false;
         playerOn = false;
         posIni = transform.position;
+        rotIni = transform.rotation;
+        platformRB = gameObject.GetComponent<Rigidbody>();
+        platformRB.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
@@ -34,17 +39,17 @@ public class SctKamikazePlatform : MonoBehaviour
     {
         if (move)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+            platformRB.AddForce(transform.right * moveDir * speed, ForceMode.Force);
             if (playerOn)
             {
                 deltaTime = Time.deltaTime * 500;
                 if (Input.GetKey(KeyCode.D))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
+                    platformRB.AddForce(transform.right * -player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
                 } 
                 if (Input.GetKey(KeyCode.A))
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
+                    platformRB.AddForce(transform.right * player.gameObject.GetComponent<SctPlayerController>().groundSpeed * deltaTime, ForceMode.Force);
                 }
             }
         }
@@ -53,8 +58,10 @@ public class SctKamikazePlatform : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                platform.SetActive(false);
-                gameObject.GetComponent<BoxCollider>().enabled = false;
+                //gameObject.GetComponent<BoxCollider>().enabled = false;
+                platformRB.constraints = RigidbodyConstraints.None;
+                platformRB.useGravity = true;
+                platformRB.AddForce(Vector3.down * 10, ForceMode.VelocityChange);
                 fall = false;
                 respawn = true;
                 timer = respawnTime;
@@ -66,13 +73,15 @@ public class SctKamikazePlatform : MonoBehaviour
             if (timer < 0)
             {
                 transform.position = posIni;
+                transform.rotation = rotIni;
                 platform.SetActive(true);
-                gameObject.GetComponent<BoxCollider>().enabled = true;
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                //gameObject.GetComponent<BoxCollider>().enabled = true;
+                platformRB.velocity = Vector3.zero;
+                platformRB.constraints = RigidbodyConstraints.FreezeAll;
                 respawn = false;
+
             }
         }
-
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -81,11 +90,12 @@ public class SctKamikazePlatform : MonoBehaviour
         {
             var normal = collision.contacts[0].normal;
             if (normal.y < 0)
-            { //if the bottom side hit something
+            { //if the top side hit something
                 move = true;
                 playerOn = true;
-                gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.VelocityChange);
+                platformRB.AddForce(transform.right * moveDir * speed, ForceMode.VelocityChange);
                 player = collision.gameObject;
+                platformRB.constraints -= RigidbodyConstraints.FreezePositionX;
             }
         }
         if (collision.gameObject.tag == "Piso" && move)
@@ -104,13 +114,13 @@ public class SctKamikazePlatform : MonoBehaviour
 
     public void checkVelocity()
     {
-        if (gameObject.GetComponent<Rigidbody>().velocity.x > maxSpeed)
+        if (platformRB.velocity.x > maxSpeed)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+            platformRB.AddForce(transform.right * moveDir * speed, ForceMode.Force);
         }
-        if (gameObject.GetComponent<Rigidbody>().velocity.x < -maxSpeed)
+        if (platformRB.velocity.x < -maxSpeed)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.right * moveDir * speed, ForceMode.Force);
+            platformRB.AddForce(transform.right * moveDir * speed, ForceMode.Force);
         }
     }
 }
