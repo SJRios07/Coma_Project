@@ -238,7 +238,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3975500377818014934, guid: c370832d5e978bb44b9ac4b497d20902, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c370832d5e978bb44b9ac4b497d20902, type: 3}
 --- !u!1 &52624488
 GameObject:
@@ -2202,6 +2203,29 @@ Transform:
   m_Father: {fileID: 767701472}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1304418726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3975500377818014936, guid: c370832d5e978bb44b9ac4b497d20902, type: 3}
+  m_PrefabInstance: {fileID: 20821907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1304418727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304418726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8d56bfc43847219598377d690ecee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundSpeed: 10
+  airSpeed: 5
+  jumpForce: 20
+  gravityScale: 1
+  posIni: {x: 0, y: 0, z: 0}
+  leerAnimator: {fileID: 1878725300}
 --- !u!1001 &1372139003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2345,9 +2369,10 @@ MonoBehaviour:
   groundSpeed: 10
   airSpeed: 5
   jumpForce: 20
+  maxSpeed: 40
   gravityScale: 3.5
+  hasKey: 0
   posIni: {x: 0, y: 0, z: 0}
-  leerAnimator: {fileID: 0}
 --- !u!136 &1418466506
 CapsuleCollider:
   m_ObjectHideFlags: 0
