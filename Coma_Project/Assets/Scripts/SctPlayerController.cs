@@ -20,6 +20,9 @@ public class SctPlayerController : MonoBehaviour
     [HideInInspector]
     public Vector3 posIni;
 
+
+    public Animator leerAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,13 +65,31 @@ public class SctPlayerController : MonoBehaviour
             transform.position = posIni;
             playerRB.AddForce(Vector3.zero, ForceMode.VelocityChange);
         }
+
+        HandleAnimation();
     }
 
     void FixedUpdate ()
     {
         Vector3 gravity = globalGravity * gravityScale * Vector3.up;
         playerRB.AddForce(gravity, ForceMode.Acceleration);
+
+
+        
      }
+
+
+    public void HandleAnimation()
+    {
+        if (playerRB.velocity.magnitude > 0.01f)
+        {
+            leerAnimator.SetBool("Running", true);
+        }
+        else
+        {
+            leerAnimator.SetBool("Running", false);
+        }
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
