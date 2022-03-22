@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1553086310248150, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
       propertyPath: m_Name
-      value: First_aid_kit_3_Mat
+      value: First_aid_kit_3_Mat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4174498047151008, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,6 +102,22 @@ PrefabInstance:
     - target: {fileID: 274887278431471440, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
       propertyPath: m_Center.z
       value: 0.6256982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389553136046340395, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389553136046340395, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389553136046340395, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389553136046340395, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f433f8ce9bb60143bb4c8b9414f4822, type: 3}
