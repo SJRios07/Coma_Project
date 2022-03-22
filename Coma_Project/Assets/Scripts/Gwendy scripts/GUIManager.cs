@@ -12,13 +12,16 @@ public class GUIManager : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
 
+    GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         currentHealth = maxHealth;
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
    
     // Update is called once per frame
@@ -34,6 +37,11 @@ public class GUIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             ReceiveDamage(10);
+        }
+
+        if (currentHealth == 0)
+        {
+            player.GetComponent<SctPlayerController>().dead = true;
         }
     }
 

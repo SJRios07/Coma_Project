@@ -7,18 +7,19 @@ public class BalaTorreta : MonoBehaviour
 {
 
     public int dano;
+    GUIManager guimanager;
     //public GameObject bala;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        guimanager = FindObjectOfType<GUIManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(this.gameObject, 3f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,8 +31,8 @@ public class BalaTorreta : MonoBehaviour
             Debug.Log("Shoke con player");
             //player.Die();
             Destroy(this.gameObject);
+            guimanager.ReceiveDamage(10);
+            
         }
-
-        //Destroy(this.gameObject);
     }
 }

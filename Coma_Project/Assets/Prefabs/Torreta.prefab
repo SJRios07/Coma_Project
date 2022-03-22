@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  Tbullet: {fileID: 0}
+  Tbullet: {fileID: 5940496024379656318, guid: 553bbe689d4934fedb5e90120b7367a9, type: 3}
   ObjTorreta: {fileID: 6871872678828933477}
   Taimer: {fileID: 6871872678734290770}
   rotator: {fileID: 6871872679102217042}
