@@ -29,10 +29,11 @@ public class BalaTorreta : MonoBehaviour
         if (player)
         {
             Debug.Log("Shoke con player");
-            //player.Die();
             Destroy(this.gameObject);
             guimanager.ReceiveDamage(10);
-            
+        }
+        else {
+            Destroy(gameObject);
         }
     }
 }

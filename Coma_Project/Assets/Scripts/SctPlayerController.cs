@@ -79,6 +79,7 @@ public class SctPlayerController : MonoBehaviour
         {
             playerRB.constraints = RigidbodyConstraints.FreezeAll;
         }
+
         if (Input.GetKey(KeyCode.Q))
         {
             transform.position = posIni;
@@ -138,7 +139,7 @@ public class SctPlayerController : MonoBehaviour
         {
             leerAnimator.SetBool("Running", false);
         }
-        if (playerRB.velocity.y > 0.01f || playerRB.velocity.y < -0.01f)
+        if ((playerRB.velocity.y > 0.01f || playerRB.velocity.y < -0.01f) && !canJump)
         {
             leerAnimator.SetBool("Jummping", true);
         }

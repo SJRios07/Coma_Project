@@ -11,6 +11,9 @@ public class GUIManager : MonoBehaviour
 
     public float maxHealth = 100;
     public float currentHealth;
+    public GameObject deadMessage;
+    [HideInInspector]
+    public bool dead;
 
     GameObject player;
 
@@ -27,7 +30,7 @@ public class GUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //A;adir vida
+        /*//A;adir vida
         if (Input.GetKeyDown(KeyCode.K))
         {
             AddLife(10);
@@ -37,11 +40,21 @@ public class GUIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             ReceiveDamage(10);
+        }*/
+
+        if (player.transform.position.y < -11f)
+        {
+            currentHealth = 0;
         }
 
         if (currentHealth == 0)
         {
             player.GetComponent<SctPlayerController>().dead = true;
+            deadMessage.SetActive(true);
+        }
+        else
+        {
+            deadMessage.SetActive(false);
         }
     }
 
