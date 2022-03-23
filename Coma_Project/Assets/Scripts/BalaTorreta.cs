@@ -28,7 +28,6 @@ public class BalaTorreta : MonoBehaviour
         SctPlayerController player = collision.gameObject.GetComponent<SctPlayerController>();
         if (player)
         {
-            Debug.Log("Shoke con player");
             Destroy(this.gameObject);
             guimanager.ReceiveDamage(10);
         }

@@ -68,7 +68,6 @@ public class GPuerta : MonoBehaviour
         if (other.gameObject.GetComponent<SctPlayerController>() == player)
         {
 
-            //door.GetComponent<Animator>().SetBool("opendoor", false);
             player = null;
             SetTextMessage("No player", false);
         }

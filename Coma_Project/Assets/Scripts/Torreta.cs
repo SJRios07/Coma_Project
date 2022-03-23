@@ -21,11 +21,17 @@ public class Torreta : MonoBehaviour
     public AudioSource torretAsource;
     public AudioClip shootClip;
 
+    public Light luz;
+
+    [HideInInspector]
+    public bool torretaActiva;
+
     // Start is called before the first frame update
     void Start()
     {
         torretAsource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
+        torretaActiva = true;
     }
 
     // Update is called once per frame
@@ -35,12 +41,20 @@ public class Torreta : MonoBehaviour
 
         if (torretToPlayer.magnitude <= distanceToShoot )
         {
-            if (Time.time < proximoDisparo)
+            if (Time.time < proximoDisparo || !torretaActiva)
                 return;
 
             proximoDisparo = Time.time + velocidadDisparo;
             Shoot();
+        }
 
+        if (torretaActiva)
+        {
+            luz.intensity = 30;
+        }
+        else
+        {
+            luz.intensity = 0;
         }
 
     }
@@ -67,8 +81,6 @@ public class Torreta : MonoBehaviour
 
     public void Shoot()
     {
-
-        //Debug.Log("Shot");
         torretAsource.clip = shootClip;
         torretAsource.PlayOneShot(shootClip);
 
@@ -76,15 +88,6 @@ public class Torreta : MonoBehaviour
         bulletTemp.transform.position = Taimer.position;
 
         Rigidbody rBullet = bulletTemp.GetComponent<Rigidbody>();
-
-        //Vector3 forceVector = player.transform.position - Taimer.transform.position;
-
-        //Debug.DrawLine(Taimer.transform.position, player.transform.position, Color.green, 5f);
-        //forceVector.Normalize();
-
-        //forceVector *= force;
-
-        //Vector3 shootForce = Taimer.right * force;
 
         rBullet.AddForce(Taimer.transform.right * force, ForceMode.Impulse);
         

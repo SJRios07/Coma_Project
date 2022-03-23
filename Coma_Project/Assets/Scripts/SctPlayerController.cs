@@ -129,7 +129,6 @@ public class SctPlayerController : MonoBehaviour
 
     public void HandleAnimation()
     {
-        //leerAnimator.SetBool("IsGrounded", canJump);
 
         if (playerRB.velocity.x > 0.01f || playerRB.velocity.x < -0.01f)
         {
