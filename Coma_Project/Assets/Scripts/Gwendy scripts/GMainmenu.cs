@@ -20,7 +20,7 @@ public class GMainmenu : MonoBehaviour
     public void EscenaJuego()
     {
 
-        SceneManager.LoadScene("Logicas + Texturas");
+        SceneManager.LoadScene("Lina VFX");
 
     }
 

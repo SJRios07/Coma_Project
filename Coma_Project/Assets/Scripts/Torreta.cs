@@ -17,9 +17,14 @@ public class Torreta : MonoBehaviour
     public float velocidadDisparo = 2f;
     private float proximoDisparo = 0f;
 
+
+    public AudioSource torretAsource;
+    public AudioClip shootClip;
+
     // Start is called before the first frame update
     void Start()
     {
+        torretAsource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -62,7 +67,11 @@ public class Torreta : MonoBehaviour
 
     public void Shoot()
     {
+
         //Debug.Log("Shot");
+        torretAsource.clip = shootClip;
+        torretAsource.PlayOneShot(shootClip);
+
         GameObject bulletTemp = Instantiate(Tbullet);
         bulletTemp.transform.position = Taimer.position;
 
@@ -78,7 +87,6 @@ public class Torreta : MonoBehaviour
         //Vector3 shootForce = Taimer.right * force;
 
         rBullet.AddForce(Taimer.transform.right * force, ForceMode.Impulse);
-
         
     }
 }
