@@ -135,12 +135,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 2613829189573137717}
     m_Modifications:
     - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
       propertyPath: ShapeModule.arc.mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120621160091653008, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2120621160091653009, guid: da44421aa86f6aa47b19de7cbe8530e6, type: 3}
       propertyPath: m_RootOrder
