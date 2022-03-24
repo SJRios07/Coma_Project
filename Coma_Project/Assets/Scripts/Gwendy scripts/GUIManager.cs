@@ -79,7 +79,7 @@ public class GUIManager : MonoBehaviour
 
 
         float myValue = Remap(currentHealth, 0, maxHealth, 0, 1);
-        Debug.Log(myValue);
+        //Debug.Log(myValue);
         lifeBar.fillAmount = myValue;
     }
 
@@ -97,7 +97,7 @@ public class GUIManager : MonoBehaviour
         }
 
         float myValue = Remap(currentHealth, 0, maxHealth, 0, 1);
-        Debug.Log(myValue);
+        //Debug.Log(myValue);
         lifeBar.fillAmount = myValue;
     }
 

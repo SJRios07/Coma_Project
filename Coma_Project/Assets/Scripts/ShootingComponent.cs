@@ -47,7 +47,7 @@ public class ShootingComponent : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Shot");
+        //Debug.Log("Shot");
         GameObject bulletTemp = Instantiate(bullet);
         bulletTemp.transform.position = aimer.position;
 

@@ -485,9 +485,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61ee9154167476444a5c43ff9cbe1f87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 666d3dc5f0c6d9d47bdf7ba643fb82ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.678
+  m_Volume: 0.42
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2266,7 +2266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2954,7 +2954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4294,8 +4294,8 @@ Transform:
   m_LocalScale: {x: 176.37839, y: 176.37836, z: 176.37837}
   m_Children:
   - {fileID: 1191113372}
-  - {fileID: 1981430734}
   - {fileID: 921251274}
+  - {fileID: 1981430734}
   - {fileID: 562366478}
   - {fileID: 971161661}
   m_Father: {fileID: 0}
@@ -5097,7 +5097,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -5243,6 +5243,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4175453041788017379, guid: d9ad3761f5081459d92987ca04d15d34, type: 3}
   m_PrefabInstance: {fileID: 1587474688}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &994005535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994005539}
+  - component: {fileID: 994005538}
+  - component: {fileID: 994005537}
+  - component: {fileID: 994005536}
+  m_Layer: 0
+  m_Name: Activador portal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &994005536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994005535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &994005537
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994005535}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &994005538
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994005535}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &994005539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994005535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.7, y: 2.3, z: 0.44}
+  m_LocalScale: {x: 11.842298, y: 3.7877066, z: 8.931}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &997178213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6386,7 +6481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871872678828933472, guid: 093c503fcbe7247239961938e1f8b9ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -9345,6 +9440,7 @@ GameObject:
   - component: {fileID: 2111930350}
   - component: {fileID: 2111930349}
   - component: {fileID: 2111930348}
+  - component: {fileID: 2111930352}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -9435,6 +9531,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2111930352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111930347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280e23c5e1db3cf4f8261e377f6a610c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2124519993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4d7cc98ae5cab2947a8d9fa3c15e4fa8, type: 3}
