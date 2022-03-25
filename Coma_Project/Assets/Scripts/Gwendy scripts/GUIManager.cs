@@ -66,6 +66,10 @@ public class GUIManager : MonoBehaviour
         {
             finished = true;
         }
+        else
+        {
+            finished = false;
+        }
     }
 
     public void SetMaxAmount(int health)
