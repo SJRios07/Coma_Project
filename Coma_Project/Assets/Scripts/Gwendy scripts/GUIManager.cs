@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GUIManager : MonoBehaviour
@@ -12,8 +13,11 @@ public class GUIManager : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     public GameObject deadMessage;
+    public GameObject endGame;
+    public GameObject checkFinal;
     [HideInInspector]
     public bool dead;
+    public bool finished;
 
     GameObject player;
 
@@ -30,18 +34,6 @@ public class GUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*//A;adir vida
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            AddLife(10);
-        }
-
-        //Quitar Vida
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            ReceiveDamage(10);
-        }*/
-
         if (player.transform.position.y < -11f)
         {
             currentHealth = 0;
@@ -51,10 +43,28 @@ public class GUIManager : MonoBehaviour
         {
             player.GetComponent<SctPlayerController>().dead = true;
             deadMessage.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
         }
         else
         {
             deadMessage.SetActive(false);
+        }
+
+        if (finished)
+        {
+            endGame.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
+        }
+
+        if (checkFinal.GetComponent<SctCheckpoint>().activado)
+        {
+            finished = true;
         }
     }
 

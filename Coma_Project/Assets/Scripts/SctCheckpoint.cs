@@ -8,6 +8,8 @@ public class SctCheckpoint : MonoBehaviour
     public Color colorInicial;
     public Color colorActivado;
     GameObject player;
+    [HideInInspector]
+    public bool activado;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class SctCheckpoint : MonoBehaviour
         if (player.GetComponent<SctPlayerController>().posIni != transform.position)
         {
             spotlight.color = colorInicial;
+            activado = false;
         }
     }
 
@@ -30,6 +33,7 @@ public class SctCheckpoint : MonoBehaviour
         {
             player.GetComponent<SctPlayerController>().posIni = transform.position;
             spotlight.color = colorActivado;
+            activado = true;
         }
     }
 

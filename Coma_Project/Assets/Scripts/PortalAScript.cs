@@ -28,10 +28,8 @@ public class PortalAScript : MonoBehaviour
 
             if (player != null)
             {
-                Debug.Log("Activao");
                 portalAsource.clip = portalClip;
                 portalAsource.PlayOneShot(portalClip);
-
             }
         }
     }

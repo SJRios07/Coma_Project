@@ -40,8 +40,6 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 6393730395395091013, guid: f9617e7178bf843a0ab9ed8e3ebb9d2a, type: 3}
-    duration: 2
   - logo: {fileID: 998905957631110264, guid: f9617e7178bf843a0ab9ed8e3ebb9d2a, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: f9617e7178bf843a0ab9ed8e3ebb9d2a, type: 3}
@@ -623,8 +621,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Template_3D
-  metroPackageVersion: 
+  metroPackageName: Template3D
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -632,7 +630,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Template_3D
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Coma_Project
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

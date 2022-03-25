@@ -20,7 +20,7 @@ public class GMainmenu : MonoBehaviour
     public void EscenaJuego()
     {
 
-        SceneManager.LoadScene("Lina VFX");
+        SceneManager.LoadScene("JC VFX Copia");
 
     }
 

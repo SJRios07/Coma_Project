@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main menu.unity
     guid: 4ce9e64c21c554c60aee25f60d96ca43
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lina VFX.unity
     guid: 9ddc71756f6034102bbc1de38a1226ff
+  - enabled: 1
+    path: Assets/Scenes/JC VFX Copia.unity
+    guid: f1420fe01198483478cc72f60c6899fb
   m_configObjects: {}
